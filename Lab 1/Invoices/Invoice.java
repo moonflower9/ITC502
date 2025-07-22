@@ -17,15 +17,34 @@ public class Invoice {
         }
     }
     
+    public static class Details {
+        String customer;
+        String address;
+        
+        public Details(String customer, String address) {
+            this.customer = customer;
+            this.address = address;
+        }
+        
+        public void displayDetails() {
+            System.out.println("Customer: " + customer);
+            System.out.println("Address: " + address);
+        }
+    }
+    
     public static void main(String[] args) {
         System.out.println("INVOICE");
+        
+        Details details = new Details("John Doe", "456 Another Street");
+        details.displayDetails();
+        
         System.out.printf("| %-15s | %-10s | %-10s | %-10s |%n", "Description", "Quantity", "Unit Price", "Total");
         System.out.println("----------------------------------------------------------");
         
-        Line line1 = new Line("Item One", 1, 100f);
-        Line line2 = new Line("Item Two", 2, 50f);
-        Line line3 = new Line("Item Three", 3, 30f);
-        Line line4 = new Line("Item Four", 1, 200f);
+        Line line1 = new Line("Item One", 1, 100);
+        Line line2 = new Line("Item Two", 2, 50);
+        Line line3 = new Line("Item Three", 3, 30);
+        Line line4 = new Line("Item Four", 1, 200);
         
         line1.displayLine();
         line2.displayLine();
